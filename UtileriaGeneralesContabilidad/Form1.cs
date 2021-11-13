@@ -120,7 +120,8 @@ namespace UtileriaGeneralesContabilidad
             }
             catch(Exception e)
             {
-                MessageBox.Show(e.Message);
+
+                richTextBox1.Text = richTextBox1.Text + "Error de carga: " + e.Message + System.Environment.NewLine;
             }
             
         }
@@ -131,10 +132,31 @@ namespace UtileriaGeneralesContabilidad
             DirectoryInfo info = new DirectoryInfo(textBox5.Text);
             FileInfo[] files = info.GetFiles("*.mdf");
 
+            richTextBox1.Text = richTextBox1.Text + "Iniciando proceso de carga de " + files.Length.ToString() + " base de datos" + System.Environment.NewLine;
+
             for (int i = 0; i < files.Length; i++)
             {
 
-                adjuntaBD((((FileInfo)files[i]).Name).Replace(".mdf",""), ((FileInfo)files[i]).FullName, (((FileInfo)files[i]).FullName).Replace(".mdf", "_log.LDF"));
+                richTextBox1.Text = richTextBox1.Text + "Iniciando de carga de " + ((FileInfo)files[i]).FullName + System.Environment.NewLine;
+
+                if ( ((FileInfo)files[i]).FullName.Contains("document") || ((FileInfo)files[i]).FullName.Contains("other"))
+                {
+                    if(File.Exists((((FileInfo)files[i]).FullName).Replace(".mdf", ".LDF")))
+                    {
+                        adjuntaBD((((FileInfo)files[i]).Name).Replace(".mdf", ""), ((FileInfo)files[i]).FullName, (((FileInfo)files[i]).FullName).Replace(".mdf", ".LDF"));
+                    }
+                    else
+                    {
+                        adjuntaBD((((FileInfo)files[i]).Name).Replace(".mdf", ""), ((FileInfo)files[i]).FullName, (((FileInfo)files[i]).FullName).Replace(".mdf", "_log.LDF"));
+                    }
+                    
+                }
+                else
+                {
+                    adjuntaBD((((FileInfo)files[i]).Name).Replace(".mdf", ""), ((FileInfo)files[i]).FullName, (((FileInfo)files[i]).FullName).Replace(".mdf", "_log.LDF"));
+                }
+
+                
 
             }
 

@@ -43,6 +43,7 @@
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.button4 = new System.Windows.Forms.Button();
             this.textBox5 = new System.Windows.Forms.TextBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -166,11 +167,20 @@
             this.textBox5.Size = new System.Drawing.Size(271, 20);
             this.textBox5.TabIndex = 14;
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(15, 420);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(749, 208);
+            this.richTextBox1.TabIndex = 15;
+            this.richTextBox1.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(776, 414);
+            this.ClientSize = new System.Drawing.Size(776, 640);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -186,6 +196,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Utileria para generacion de generales ";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -211,6 +222,7 @@
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 
